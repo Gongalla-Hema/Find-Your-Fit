@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Find Your Fit</title>
+      <link rel="icon" type="image/x-icon" href="static/images/logo1.png">
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
+      <!-- style css -->
+      <link rel="stylesheet" type="text/css" href="static/css/style.css">
+      <!-- Responsive-->
+      <link rel="stylesheet" href="static/css/responsive.css">
+      <!-- fevicon -->
+      <link rel="icon" href="static/images/fevicon.png" type="image/gif" />
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="static/css/jquery.mCustomScrollbar.min.css">
+      <!-- Tweaks for older IEs-->
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+      <!-- owl stylesheets --> 
+      <link rel="stylesheet" href="static/css/owl.carousel.min.css">
+      <link rel="stylesheet" href="static/css/owl.theme.default.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+   </head>
+   <body>
+      <!-- header section start -->
+      <div class="header_section">
+         <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+               <div class="logo"><a href="{% url 'Pred-Home' %}"><img src="static/images/logo4.png"></a></div>
+               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+               </button>
+               <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                     <li class="nav-item">
+                        <a class="nav-link" href="{% url 'Pred-Home' %}">Home</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="{% url 'Pred-About' %}">About</a>
+                     </li>
+                     {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'Pred-Size' %}">Know your size</a>
+                    </li> 
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'register' %}">Sign Up</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">Log In</a>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link" href="{% url 'Pred-Size' %}">Know your size</a>
+                    </li>
+                    {% endif %}
+                     <li class="nav-item">
+                        <a class="nav-link" href="{% url 'Pred-Recomend' %}">Recommendation</a>
+                     </li>
+                  </ul>
+                  <div class="search_icon">
+                     <ul>
+                        <li><a href="#"><img src="static/images/search-icon.png"></a></li>
+                     </ul>
+                  </div>
+               </div>
+            </nav>
+         </div>
+      </div>
+      <!-- header section end -->
+      <!-- banner section start -->
+      <div class="banner_section layout_padding">
+         <div class="container">
+            <div id="costum_slider" class="carousel slide" data-ride="carousel">
+               <div class="carousel-inner">
+                  <div class="carousel-item active">
+                     <h1 class="furniture_text1">F I N D&nbsp;&nbsp;Y O U R&nbsp;&nbsp;F I T</h1>
+                     <p class="there_text1">Right People Deserve Right Fit</p>
+                     <div class="contact_bt_main">
+                        <div class="contact_bt"><a href="#">Contact Us</a></div>
+                     </div>
+                  </div>
+                  <div class="carousel-item">
+                     <h1 class="furniture_text1">F I N D&nbsp;&nbsp;Y O U R&nbsp;&nbsp;F I T</h1>
+                     <p class="there_text1">Right People Deserve Right Fit</p>
+                     <div class="contact_bt_main">
+                        <div class="contact_bt"><a href="#">Contact Us</a></div>
+                     </div>
+                  </div>
+               </div>
+               <a class="carousel-control-prev" href="#costum_slider" role="button" data-slide="prev">
+               <i class=""><img src="static/images/left-arrow.png"></i>
+               </a>
+               <a class="carousel-control-next" href="#costum_slider" role="button" data-slide="next">
+               <i class=""><img src="static/images/right-arrow.png"></i>
+               </a>
+            </div>
+         </div>
+      </div>
+      <!-- banner section end -->
+      
+      <!-- furnitures section start -->
+      <div class="furnitures_section layout_padding1">
+         <div class="container">
+            <h1 class="our_text">OUR CUSTOMERS</h1>
+            <div class="furnitures_section2 layout_padding1">
+               <div class="row">
+                  <div class="col-md-6">
+                     <div class="container_main">
+                        <img src="static/images/men.png" alt="Avatar" class="image">
+                        <div class="overlay">
+                           <a href="#" class="icon" title="User Profile">
+                           <i class="fa fa-search"></i>
+                           </a>
+                        </div>
+                     </div>
+                     <h3 class="temper_text">MEN'S FOOTWEAR</h3>
+                     <p class="dololr_text">Huge varities of footwear's are available. Choosing
+                     the best one defines you.</p>
+                  </div>
+                  <div class="col-md-6">
+                     <div class="container_main">
+                        <img src="static/images/women.png" width="200" height="200" alt="Avatar" class="image">
+                        <div class="overlay">
+                           <a href="#" class="icon" title="User Profile">
+                           <i class="fa fa-search"></i>
+                           </a>
+                        </div>
+                     </div>
+                     <h3 class="temper_text">WOMEN'S FOOTWEAR</h3>
+                     <p class="dololr_text">Huge varities of footwear's are available. Choosing
+                     the best one defines you.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- furnitures section end -->
+      <!-- projects section start -->
+      <div class="projects_section layout_padding1">
+         <div class="container">
+            <h1 class="our_text">Our COLLECTIONS</h1>
+            <div id="main_slider" class="carousel slide" data-ride="carousel">
+               <div class="carousel-inner">
+                  <div class="carousel-item active">
+                     <div class="projects_section2">
+                        <div class="container_main2">
+                           <div class="row">
+                              <div class="col-sm-4">
+                                 <div class="container_main1">
+                                    <img src="static/images/shoe1.png" alt="Avatar" class="image" style="width:100%">
+                                    <h1 class="modern_text">Sport Shoes</h1>
+                                    <div class="middle">
+                                       <div class="text">
+                                          <a href="#">VIEW MORE</a></div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-sm-4">
+                                 <div class="container_main1">
+                                    <img src="static/images/shoe2.png" alt="Avatar" class="image" style="width:100%">
+                                    <h1 class="modern_text">Men Formal Shoes</h1>
+                                    <div class="middle">
+                                       <div class="text"><a href="#">VIEW MORE</a></div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-sm-4">
+                                 <div class="container_main1">
+                                    <img src="static/images/shoe3.png" alt="Avatar" class="image" style="width:100%">
+                                    <h1 class="modern_text">Sneakers</h1>
+                                    <div class="middle">
+                                       <div class="text"><a href="#">VIEW MORE</a></div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="carousel-item">
+                     <div class="projects_section2">
+                        <div class="container_main1">
+                           <div class="row">
+                              <div class="col-sm-4">
+                                 <div class="container_main1">
+                                    <img src="static/images/shoe4.png" alt="Avatar" class="image" style="width:100%">
+                                    <h1 class="modern_text">Pumps</h1>
+                                    <div class="middle">
+                                       <div class="text"><a href="#">VIEW MORE</a></div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-sm-4">
+                                 <div class="container_main1">
+                                    <img src="static/images/shoe5.png" alt="Avatar" class="image" style="width:100%">
+                                    <h1 class="modern_text">Big Boots</h1>
+                                    <div class="middle">
+                                       <div class="text"><a href="#">VIEW MORE</a></div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-sm-4">
+                                 <div class="container_main1">
+                                    <img src="static/images/shoe6.png" alt="Avatar" class="image" style="width:100%">
+                                    <h1 class="modern_text">Sandals</h1>
+                                    <div class="middle">
+                                       <div class="text"><a href="#">VIEW MORE</a></div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="carousel-item">
+                     <div class="projects_section2">
+                        <div class="container_main1">
+                           <div class="row">
+                              <div class="col-sm-4">
+                                 <div class="container_main1">
+                                    <img src="static/images/shoe1.png" alt="Avatar" class="image" style="width:100%">
+                                    <h1 class="modern_text">Sport Shoes</h1>
+                                    <div class="middle">
+                                       <div class="text"><a href="#">VIEW MORE</a></div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-sm-4">
+                                 <div class="container_main1">
+                                    <img src="static/images/shoe2.png" alt="Avatar" class="image" style="width:100%">
+                                    <h1 class="modern_text">Men Formal Shoes</h1>
+                                    <div class="middle">
+                                       <div class="text"><a href="#">VIEW MORE</a></div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-sm-4">
+                                 <div class="container_main1">
+                                    <img src="static/images/shoe3.png" alt="Avatar" class="image" style="width:100%">
+                                    <h1 class="modern_text">Sneakers</h1>
+                                    <div class="middle">
+                                       <div class="text"><a href="#">VIEW MORE</a></div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
+               <i class="fa fa-angle-left"></i>
+               </a>
+               <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
+               <i class="fa fa-angle-right"></i>
+               </a>
+            </div>
+         </div>
+      </div>
+      <!-- projects section end -->
+      <!-- footer section start -->
+      <div class="footer_section layout_padding1">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-3 col-sm-6">
+                  <h1 class="customer_text">Brands</h1>
+                  <p class="footer_lorem_text">Different branding products
+                     available here. The registered customer's are availed
+                     with exciting offers.
+                  </p>
+               </div>
+               <div class="col-lg-3 col-sm-6">
+                  <h1 class="customer_text">Collections</h1>
+                  <p class="footer_lorem_text">Each type of footwear
+                  is available in different sizes for both men and women. 
+                  </p>
+               </div>
+               <div class="col-lg-3 col-sm-6">
+                  <h1 class="customer_text">INFORMATION</h1>
+                  <p class="footer_lorem_text1">About Us<br>
+                     Careers<br>
+                     Competitions<br>
+                     Terms & Conditions
+                  </p>
+               </div>
+               <div class="col-lg-3 col-sm-6">
+                  <h1 class="customer_text">Subscription benefits</h1>
+                  <p class="footer_lorem_text">The subscripted customers
+                  are offered with exciting deals and specially notified with
+                  new collections and discounts. Enter your Mail ID below and 
+                  subscribe to the webiste.  
+                  </p>
+               </div>
+            </div>
+            <div class="input-group mb-3">
+               <input type="text" class="form-control" placeholder="Enter your email" aria-label="Enter your email" aria-describedby="basic-addon2">
+               <div class="input-group-append">
+                  <span class="input-group-text" id="basic-addon2"><a href="#">Subscribe</a></span>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!--  footer section end -->
+      <!-- copyright section start -->
+      <div class="copyright_section">
+      <div class="container">
+         <div class="social_icon">
+            <ul>
+               <li><a href="#"><img src="/static/images/fb-icon.png"></a></li>
+               <li><a href="#"><img src="/static/images/twitter-icon.png"></a></li>
+               <li><a href="#"><img src="/static/images/instagram-icon.png"></a></li>
+               <li><a href="#"><img src="/static/images/linkedin-icon.png"></a></li>
+            </ul>
+         </div>
+         <p class="copyright_text">2022 All Rights Reserved. Design by <a href="#">Find Your Fit</a></p>
+      </div>
+      <!-- copyright section end -->
+      <!-- Javascript files-->
+      <script src="static/js/jquery.min.js"></script>
+      <script src="static/js/popper.min.js"></script>
+      <script src="static/js/bootstrap.bundle.min.js"></script>
+      <script src="static/js/jquery-3.0.0.min.js"></script>
+      <script src="static/js/plugin.js"></script>
+      <!-- sidebar -->
+      <script src="static/js/jquery.mCustomScrollbar.concat.min.js"></script>
+      <script src="static/js/custom.js"></script>
+      <!-- javascript --> 
+      <script src="static/js/owl.carousel.js"></script>
+      <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>    
+   </body>
+</html>

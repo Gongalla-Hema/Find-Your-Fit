@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Find Your Fit</title>
+      <link rel="icon" type="image/x-icon" href="/static/images/logo1.png">
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+      <!-- style css -->
+      <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+      <!-- Responsive-->
+      <link rel="stylesheet" href="/static/css/responsive.css">
+      <!-- fevicon -->
+      <link rel="icon" href="/static/images/fevicon.png" type="image/gif" />
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="/static/css/jquery.mCustomScrollbar.min.css">
+      <!-- Tweaks for older IEs-->
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+      <!-- owl stylesheets --> 
+      <link rel="stylesheet" href="/static/css/owl.carousel.min.css">
+      <link rel="stylesheet" href="/static/css/owl.theme.default.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+   </head>
+
+      <body>
+      <!-- header section start -->
+      <div class="header_section">
+         <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+               <div class="logo"><a href="{% url 'Pred-Home' %}"><img src="/static/images/logo4.png"></a></div>
+               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+               </button>
+               <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                     <li class="nav-item">
+                        <a class="nav-link" href="{% url 'Pred-Home' %}">Home</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="{% url 'Pred-About' %}">About</a>
+                     </li>
+                     {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'Pred-Size' %}">Know your size</a>
+                    </li> 
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'register' %}">Sign Up</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">Log In</a>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link" href="{% url 'Pred-Size' %}">Know your size</a>
+                    </li>
+                    {% endif %}
+                     <li class="nav-item">
+                        <a class="nav-link" href="{% url 'Pred-Recomend' %}">Recommendation</a>
+                     </li>
+                  </ul>
+                  <div class="search_icon">
+                     <ul>
+                        <li><a href="#"><img src="/static/images/search-icon.png"></a></li>
+                     </ul>
+                  </div>
+               </div>
+            </nav>
+         </div>
+      </div>
+      <!-- header section end -->
+      <!-- banner section start -->
+      <div class="banner_section layout_padding">
+         <div class="container">
+            <div id="costum_slider" class="carousel slide" data-ride="carousel">
+               <div class="carousel-inner">
+                  <div class="carousel-item active">
+                     <h1 class="furniture_text1">F I N D&nbsp;&nbsp;Y O U R&nbsp;&nbsp;F I T</h1>
+                     <p class="there_text1">Right People Deserve Right Fit</p>
+                     <div class="contact_bt_main">
+                        <div class="contact_bt"><a href="#">Contact Us</a></div>
+                     </div>
+                  </div>
+                  <div class="carousel-item">
+                     <h1 class="furniture_text1">F I N D&nbsp;&nbsp;Y O U R&nbsp;&nbsp;F I T</h1>
+                     <p class="there_text1">Right People Deserve Right Fit</p>
+                     <div class="contact_bt_main">
+                        <div class="contact_bt"><a href="#">Contact Us</a></div>
+                     </div>
+                  </div>
+               </div>
+               <a class="carousel-control-prev" href="#costum_slider" role="button" data-slide="prev">
+               <i class=""><img src="/static/images/left-arrow.png"></i>
+               </a>
+               <a class="carousel-control-next" href="#costum_slider" role="button" data-slide="next">
+               <i class=""><img src="/static/images/right-arrow.png"></i>
+               </a>
+            </div>
+         </div>
+      </div>
+      <!-- banner section end -->
+
+      <div class="about_section1 layout_padding1">
+         <div class="container">
+            <h1 class="our_text">Recommendation based on your Choice</h1>
+            <div class="furnitures_section2 layout_padding1">
+               <div class="row">
+               	<div class="col-md-2">
+               	</div>
+               		<div class="col-md-2">
+						Gender:
+			        	<select id="select1">
+			            	<option value="Male">Male</option>
+			            	<option value="Female">Female</option>
+			        	</select>
+					</div>
+					<div class="col-md-2">
+						Brand:
+			        	<select id="select2">
+			            	<option value="Bata">Bata</option>
+			            	<option value="Nike">Nike</option>
+			            	<option value="Puma">Puma</option>
+			            	<option value="Metro">Metro</option>
+			        	</select>
+					</div>
+					<div class="col-md-2">
+						Wear:
+			        	<select id="select3">
+			            	<option value="Shoes">Shoes</option>
+			            	<option value="Sports">Sports</option>
+			            	<option value="Sandals">Sandals</option>
+			        	</select>
+					</div>
+					<div class="col-md-3">
+						Size
+						<input type="text" name="size" id="size" /></label>
+					</div>
+				</div>
+				<br>
+				<div class="row">
+                <br>
+                <div class="col-md-2">
+               	</div>
+               	<div class="col-md-2">
+               	</div>
+               	<div class="col-md-1">
+               	</div>
+                <div class="col-md-3">
+                     <input class="btn btn-danger" type="button" value="Cancel" onclick="location.href='{% url 'Pred-Home' %}'"/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <button class="btn btn-success" type="submit" onclick="message()">Submit</button>
+                  <script>
+                    function message() {
+
+                      var gen = document.querySelector('#select1');
+                      var brd = document.querySelector('#select2');
+                      var wer = document.querySelector('#select3');
+                      var sz = document.getElementById('size');
+
+                      // Male, Bata, Shoes
+                      if (gen.value == 'Male' && brd.value=='Bata' && wer.value=='Shoes' && sz.value == '6') {
+                          alert("Open the below link in browser for your results!\n\nhttps://www.bata.in/men/shoes/casual-shoes/6/?srule=recommended")
+                          let text = "https://www.bata.in/men/shoes/casual-shoes/6/?srule=recommended";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+                      else if (gen.value == 'Male' && brd.value=='Bata' && wer.value=='Shoes' && sz.value == '7') {
+                          alert("Open the below link in browser for your results!\n\nhttps://www.bata.in/men/shoes/casual-shoes/7/?srule=recommended")
+                          let text = "https://www.bata.in/men/shoes/casual-shoes/7/?srule=recommended";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+                      // Male, Bata, Sports
+                      else if (gen.value == 'Male' && brd.value=='Bata' && wer.value=='Sports' && sz.value == '6') {
+                          alert("Open the below link in browser for your results!\n\nhttps://www.bata.in/men/shoes/sports/6/")
+                          let text = "https://www.bata.in/men/shoes/sports/6/";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+                      else if (gen.value == 'Male' && brd.value=='Bata' && wer.value=='Sports' && sz.value == '7') {
+                          alert("Open the below link in browser for your results!\n\nhttps://www.bata.in/men/shoes/sports/7/?srule=recommended")
+                          let text = "https://www.bata.in/men/shoes/sports/7/?srule=recommended";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+                      // Male, Bata, Sandals
+                      else if (gen.value == 'Male' && brd.value=='Bata' && wer.value=='Sandals' && sz.value == '6') {
+                          alert("Open the below link in browser for your results!\n\nhttps://www.bata.in/men/shoes/sandals-e-floater/6/")
+                          let text = "https://www.bata.in/men/shoes/sandals-e-floater/6/";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+                      else if (gen.value == 'Male' && brd.value=='Bata' && wer.value=='Sandals' && sz.value == '7') {
+                          alert("Open the below link in browser for your results!\n\nhttps://www.bata.in/men/shoes/sandals-e-floater/7/?srule=recommended")
+                          let text = "https://www.bata.in/men/shoes/sandals-e-floater/7/?srule=recommended";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+
+                      // Female, Bata, Shoes
+                      else if (gen.value == 'Female' && brd.value=='Bata' && wer.value=='Shoes' && sz.value == '6') {
+                          alert("Open the below link in browser for your results!\n\nhttps://www.bata.in/women/shoes/casual-shoes/6/?srule=recommended")
+                          let text = "https://www.bata.in/women/shoes/casual-shoes/6/?srule=recommended";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+                      else if (gen.value == 'Female' && brd.value=='Bata' && wer.value=='Shoes' && sz.value == '7') {
+                          alert("Open the below link in browser for your results!\n\nhttps://www.bata.in/women/shoes/casual-shoes/7/")
+                          let text = "https://www.bata.in/women/shoes/casual-shoes/7/";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+                      // Female, Bata, Sports
+                      else if (gen.value == 'Female' && brd.value=='Bata' && wer.value=='Sports' && sz.value == '6') {
+                          alert("Open the below link in browser for your results!\n\nhttps://www.bata.in/women/shoes/sports/6/?srule=recommended")
+                          let text = "https://www.bata.in/women/shoes/sports/6/?srule=recommended";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+                      else if (gen.value == 'Female' && brd.value=='Bata' && wer.value=='Sports' && sz.value == '7') {
+                          alert("Open the below link in browser for your results!\n\nhttps://www.bata.in/women/shoes/sports/7/?srule=recommended")
+                          let text = "https://www.bata.in/women/shoes/sports/7/?srule=recommended";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+                      // Female, Bata, Sandals
+                      else if (gen.value == 'Female' && brd.value=='Bata' && wer.value=='Sandals' && sz.value == '6') {
+                          alert("Open the below link in browser for your results!\n\nhttps://www.bata.in/women/shoes/sandals/6/?srule=recommended")
+                          let text = "https://www.bata.in/women/shoes/sandals/6/?srule=recommended";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+                      else if (gen.value == 'Female' && brd.value=='Bata' && wer.value=='Sandals' && sz.value == '7') {
+                          alert("Open the below link in browser for your results!\n\nhttps://www.bata.in/women/shoes/sandals/7/?srule=recommended")
+                          let text = "https://www.bata.in/women/shoes/sandals/7/?srule=recommended";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+                      
+                      // Male, Nike, Shoes
+                      else if (gen.value == 'Male' && brd.value=='Nike' && wer.value=='Shoes' && sz.value == '8') {
+                          alert("Open the below link in browser for your results!\n\nhttps://www.nike.com/in/w/new-mens-lifestyle-shoes-13jrmz3n82yznik1zstp2zy7ok")
+                          let text = "https://www.nike.com/in/w/new-mens-lifestyle-shoes-13jrmz3n82yznik1zstp2zy7ok";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+                      else if (gen.value == 'Male' && brd.value=='Nike' && wer.value=='Shoes' && sz.value == '9') {
+                          alert("Open the below link in browser for your results!\n\nhttps://www.nike.com/in/w/new-mens-lifestyle-shoes-13jrmz2eqihz3n82yznik1zy7ok")
+                          let text = "https://www.nike.com/in/w/new-mens-lifestyle-shoes-13jrmz2eqihz3n82yznik1zy7ok";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+                      // Male, Nike, Sports
+                      else if (gen.value == 'Male' && brd.value=='Nike' && wer.value=='Sports' && sz.value == '8') {
+                          alert("Open the below link in browser for your results!\n\nhttps://www.nike.com/in/w/mens-running-shoes-37v7jznik1zstp2zy7ok")
+                          let text = "https://www.nike.com/in/w/mens-running-shoes-37v7jznik1zstp2zy7ok";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+                      else if (gen.value == 'Male' && brd.value=='Nike' && wer.value=='Sports' && sz.value == '9') {
+                          alert("Open the below link in browser for your results!\n\nhttps://www.nike.com/in/w/mens-running-shoes-2eqihz37v7jznik1zy7ok")
+                          let text = "https://www.nike.com/in/w/mens-running-shoes-2eqihz37v7jznik1zy7ok";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+                      // Male, Nike, Sandals
+                      else if (gen.value == 'Male' && brd.value=='Nike' && wer.value=='Sandals' && sz.value == '8') {
+                          alert("Open the below link in browser for your results!\n\nhttps://www.nike.com/in/w/mens-sandals-slides-fl76znik1zstp2")
+                          let text = "https://www.nike.com/in/w/mens-sandals-slides-fl76znik1zstp2";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+                      else if (gen.value == 'Male' && brd.value=='Nike' && wer.value=='Sandals' && sz.value == '9') {
+                          alert("Open the below link in browser for your results!\n\nhttps://www.nike.com/in/w/mens-sandals-slides-2eqihzfl76znik1")
+                          let text = "https://www.nike.com/in/w/mens-sandals-slides-2eqihzfl76znik1";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+
+                      // Female, Nike, Shoes
+                      else if (gen.value == 'Female' && brd.value=='Nike' && wer.value=='Shoes' && sz.value == '8') {
+                          alert("Open the below link in browser for your results!\n\nhttps://www.nike.com/in/w/womens-lifestyle-shoes-13jrmz56vxcz5e1x6zy7ok")
+                          let text = "https://www.nike.com/in/w/womens-lifestyle-shoes-13jrmz56vxcz5e1x6zy7ok";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+                      else if (gen.value == 'Female' && brd.value=='Nike' && wer.value=='Shoes' && sz.value == '9') {
+                          alert("Open the below link in browser for your results!\n\nhttps://www.nike.com/in/w/womens-lifestyle-shoes-13jrmz3ms32z5e1x6zy7ok")
+                          let text = "https://www.nike.com/in/w/womens-lifestyle-shoes-13jrmz3ms32z5e1x6zy7ok";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+                      // Female, Nike, Sports
+                      else if (gen.value == 'Female' && brd.value=='Nike' && wer.value=='Sports' && sz.value == '8') {
+                          alert("Open the below link in browser for your results!\n\nhttps://www.nike.com/in/w/womens-running-shoes-37v7jz56vxcz5e1x6zy7ok")
+                          let text = "https://www.nike.com/in/w/womens-running-shoes-37v7jz56vxcz5e1x6zy7ok";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+                      else if (gen.value == 'Female' && brd.value=='Nike' && wer.value=='Sports' && sz.value == '9') {
+                          alert("Open the below link in browser for your results!\n\nhttps://www.nike.com/in/w/womens-running-shoes-37v7jz3ms32z5e1x6zy7ok")
+                          let text = "https://www.nike.com/in/w/womens-running-shoes-37v7jz3ms32z5e1x6zy7ok";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+                      // Female, Nike, Sandals
+                      else if (gen.value == 'Female' && brd.value=='Nike' && wer.value=='Sandals' && sz.value == '8') {
+                          alert("Open the below link in browser for your results!\n\nhttps://www.nike.com/in/w/womens-sandals-slides-56vxcz5e1x6zfl76")
+                          let text = "https://www.nike.com/in/w/womens-sandals-slides-56vxcz5e1x6zfl76";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+                      else if (gen.value == 'Female' && brd.value=='Nike' && wer.value=='Sandals' && sz.value == '9') {
+                          alert("Open the below link in browser for your results!\n\nhttps://www.nike.com/in/w/womens-sandals-slides-3ms32z5e1x6zfl76")
+                          let text = "https://www.nike.com/in/w/womens-sandals-slides-3ms32z5e1x6zfl76";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+
+                      // Male, Puma, Shoes
+                      else if (gen.value == 'Male' && brd.value=='Puma' && wer.value=='Shoes' && sz.value == '8') {
+                          alert("Open the below link in browser for your results!\n\nhttps://in.puma.com/in/en/mens/mens-new-arrivals?prefv3=8&prefn3=size&prefv2=Footwear&prefn2=productdivName&prefv1=Casual%20Shoes&prefn1=deptCode&pmpt=discounted&pmid=nosales-category-promotion-IN")
+                          let text = "https://in.puma.com/in/en/mens/mens-new-arrivals?prefv3=8&prefn3=size&prefv2=Footwear&prefn2=productdivName&prefv1=Casual%20Shoes&prefn1=deptCode&pmpt=discounted&pmid=nosales-category-promotion-IN";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+                      else if (gen.value == 'Male' && brd.value=='Puma' && wer.value=='Shoes' && sz.value == '9') {
+                          alert("Open the below link in browser for your results!\n\nhttps://in.puma.com/in/en/mens/mens-new-arrivals?prefv3=9&prefn3=size&prefv2=Footwear&prefn2=productdivName&prefv1=Casual%20Shoes&prefn1=deptCode&pmpt=discounted&pmid=nosales-category-promotion-IN")
+                          let text = "https://in.puma.com/in/en/mens/mens-new-arrivals?prefv3=9&prefn3=size&prefv2=Footwear&prefn2=productdivName&prefv1=Casual%20Shoes&prefn1=deptCode&pmpt=discounted&pmid=nosales-category-promotion-IN";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+                      // Male, Puma, Sports
+                      else if (gen.value == 'Male' && brd.value=='Puma' && wer.value=='Sports' && sz.value == '8') {
+                          alert("Open the below link in browser for your results!\n\nhttps://in.puma.com/in/en/mens/mens-new-arrivals?prefv3=8&prefn3=size&prefv2=Footwear&prefn2=productdivName&prefv1=Sports%20Shoes&prefn1=deptCode&pmpt=discounted&pmid=nosales-category-promotion-IN")
+                          let text = "https://in.puma.com/in/en/mens/mens-new-arrivals?prefv3=8&prefn3=size&prefv2=Footwear&prefn2=productdivName&prefv1=Sports%20Shoes&prefn1=deptCode&pmpt=discounted&pmid=nosales-category-promotion-IN";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+                      else if (gen.value == 'Male' && brd.value=='Puma' && wer.value=='Sports' && sz.value == '9') {
+                          alert("Open the below link in browser for your results!\n\nhttps://in.puma.com/in/en/mens/mens-new-arrivals?prefv3=9&prefn3=size&prefv2=Footwear&prefn2=productdivName&prefv1=Sports%20Shoes&prefn1=deptCode&pmpt=discounted&pmid=nosales-category-promotion-IN")
+                          let text = "https://in.puma.com/in/en/mens/mens-new-arrivals?prefv3=9&prefn3=size&prefv2=Footwear&prefn2=productdivName&prefv1=Sports%20Shoes&prefn1=deptCode&pmpt=discounted&pmid=nosales-category-promotion-IN";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+                      // Male, Puma, Sandals
+                      else if (gen.value == 'Male' && brd.value=='Puma' && wer.value=='Sandals' && sz.value == '8') {
+                          alert("Open the below link in browser for your results!\n\nhttps://in.puma.com/in/en/mens/mens-new-arrivals?prefv3=8&prefn3=size&prefv2=Footwear&prefn2=productdivName&prefv1=Slides%7CSandals&prefn1=deptCode&pmpt=discounted&pmid=nosales-category-promotion-IN")
+                          let text = "https://in.puma.com/in/en/mens/mens-new-arrivals?prefv3=8&prefn3=size&prefv2=Footwear&prefn2=productdivName&prefv1=Slides%7CSandals&prefn1=deptCode&pmpt=discounted&pmid=nosales-category-promotion-IN";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+                      else if (gen.value == 'Male' && brd.value=='Puma' && wer.value=='Sandals' && sz.value == '9') {
+                          alert("Open the below link in browser for your results!\n\nhttps://in.puma.com/in/en/mens/mens-new-arrivals?prefv3=9&prefn3=size&prefv2=Footwear&prefn2=productdivName&prefv1=Slides%7CSandals&prefn1=deptCode&pmpt=discounted&pmid=nosales-category-promotion-IN")
+                          let text = "https://in.puma.com/in/en/mens/mens-new-arrivals?prefv3=9&prefn3=size&prefv2=Footwear&prefn2=productdivName&prefv1=Slides%7CSandals&prefn1=deptCode&pmpt=discounted&pmid=nosales-category-promotion-IN";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+
+                      // Female, Puma, Shoes
+                      else if (gen.value == 'Female' && brd.value=='Puma' && wer.value=='Shoes' && sz.value == '8') {
+                          alert("Open the below link in browser for your results!\n\nhttps://in.puma.com/in/en/womens?prefv3=8&prefn3=size&prefv2=Footwear&prefn2=productdivName&prefv1=Casual%20Shoes&prefn1=deptCode")
+                          let text = "https://in.puma.com/in/en/womens?prefv3=8&prefn3=size&prefv2=Footwear&prefn2=productdivName&prefv1=Casual%20Shoes&prefn1=deptCode";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+                      else if (gen.value == 'Female' && brd.value=='Puma' && wer.value=='Shoes' && sz.value == '9') {
+                          alert("Open the below link in browser for your results!\n\nhttps://in.puma.com/in/en/womens?prefv3=9&prefn3=size&prefv2=Footwear&prefn2=productdivName&prefv1=Casual%20Shoes&prefn1=deptCode")
+                          let text = "https://in.puma.com/in/en/womens?prefv3=9&prefn3=size&prefv2=Footwear&prefn2=productdivName&prefv1=Casual%20Shoes&prefn1=deptCode";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+                      // Female, Puma, Sports
+                      else if (gen.value == 'Female' && brd.value=='Puma' && wer.value=='Sports' && sz.value == '8') {
+                          alert("Open the below link in browser for your results!\n\nhttps://in.puma.com/in/en/womens?prefv3=8&prefn3=size&prefv2=Footwear&prefn2=productdivName&prefv1=Sports%20Shoes&prefn1=deptCode")
+                          let text = "https://in.puma.com/in/en/womens?prefv3=8&prefn3=size&prefv2=Footwear&prefn2=productdivName&prefv1=Sports%20Shoes&prefn1=deptCode";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+                      else if (gen.value == 'Female' && brd.value=='Puma' && wer.value=='Sports' && sz.value == '9') {
+                          alert("Open the below link in browser for your results!\n\nhttps://in.puma.com/in/en/womens?prefv3=9&prefn3=size&prefv2=Footwear&prefn2=productdivName&prefv1=Sports%20Shoes&prefn1=deptCode")
+                          let text = "https://in.puma.com/in/en/womens?prefv3=9&prefn3=size&prefv2=Footwear&prefn2=productdivName&prefv1=Sports%20Shoes&prefn1=deptCode";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+                      // Female, Puma, Sandals
+                      else if (gen.value == 'Female' && brd.value=='Puma' && wer.value=='Sandals' && sz.value == '8') {
+                          alert("Open the below link in browser for your results!\n\nhttps://in.puma.com/in/en/womens?prefv3=8&prefn3=size&prefv2=Footwear&prefn2=productdivName&prefv1=Sandals&prefn1=deptCode")
+                          let text = "https://in.puma.com/in/en/womens?prefv3=8&prefn3=size&prefv2=Footwear&prefn2=productdivName&prefv1=Sandals&prefn1=deptCode";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+                      else if (gen.value == 'Female' && brd.value=='Puma' && wer.value=='Sandals' && sz.value == '9') {
+                          alert("Open the below link in browser for your results!\n\nhttps://in.puma.com/in/en/womens?prefv3=9&prefn3=size&prefv2=Footwear&prefn2=productdivName&prefv1=Sandals&prefn1=deptCode")
+                          let text = "https://in.puma.com/in/en/womens?prefv3=9&prefn3=size&prefv2=Footwear&prefn2=productdivName&prefv1=Sandals&prefn1=deptCode";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+
+                      // Male, Metro, Shoes
+                      else if (gen.value == 'Male' && brd.value=='Metro' && wer.value=='Shoes' && sz.value == '7') {
+                          alert("Open the below link in browser for your results!\n\nhttps://www.metroshoes.com/men-shoes.html?filter=occasion~Casual%7Ccategory_name~Boots%7Ccategory_name~Sneakers%7Coccasion~Semi%20Formal%7Csize~7")
+                          let text = "https://www.metroshoes.com/men-shoes.html?filter=occasion~Casual%7Ccategory_name~Boots%7Ccategory_name~Sneakers%7Coccasion~Semi%20Formal%7Csize~7";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+                      else if (gen.value == 'Male' && brd.value=='Metro' && wer.value=='Shoes' && sz.value == '8') {
+                          alert("Open the below link in browser for your results!\n\nhttps://www.metroshoes.com/men-shoes.html?filter=occasion~Casual%7Ccategory_name~Boots%7Ccategory_name~Sneakers%7Coccasion~Semi%20Formal%7Csize~8")
+                          let text = "https://www.metroshoes.com/men-shoes.html?filter=occasion~Casual%7Ccategory_name~Boots%7Ccategory_name~Sneakers%7Coccasion~Semi%20Formal%7Csize~8";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+                      // Male, Metro, Sports
+                      else if (gen.value == 'Male' && brd.value=='Metro' && wer.value=='Sports' && sz.value == '7') {
+                          alert("Open the below link in browser for your results!\n\nhttps://www.metroshoes.com/men-shoes.html?filter=occasion~Sports%7Csize~7")
+                          let text = "https://www.metroshoes.com/men-shoes.html?filter=occasion~Sports%7Csize~7";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+                      else if (gen.value == 'Male' && brd.value=='Metro' && wer.value=='Sports' && sz.value == '8') {
+                          alert("Open the below link in browser for your results!\n\nhttps://www.metroshoes.com/men-shoes.html?filter=occasion~Sports%7Csize~8")
+                          let text = "https://www.metroshoes.com/men-shoes.html?filter=occasion~Sports%7Csize~8";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+                      // Male, Metro, Sandals
+                      else if (gen.value == 'Male' && brd.value=='Metro' && wer.value=='Sandals' && sz.value == '7') {
+                          alert("Open the below link in browser for your results!\n\nhttps://www.metroshoes.com/men-shoes.html?filter=category_name~Sandals%7Csize~7")
+                          let text = "https://www.metroshoes.com/men-shoes.html?filter=category_name~Sandals%7Csize~7";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+                      else if (gen.value == 'Male' && brd.value=='Metro' && wer.value=='Sandals' && sz.value == '8') {
+                          alert("Open the below link in browser for your results!\n\nhttps://www.metroshoes.com/men-shoes.html?filter=category_name~Sandals%7Csize~8")
+                          let text = "https://www.metroshoes.com/men-shoes.html?filter=category_name~Sandals%7Csize~8";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+
+                      // Female, Metro, Shoes
+                      else if (gen.value == 'Female' && brd.value=='Metro' && wer.value=='Shoes' && sz.value == '7') {
+                          alert("Open the below link in browser for your results!\n\nhttps://www.metroshoes.com/women-shoes/occasion/casuals.html?filter=category_name~Sneakers%7Csize~7")
+                          let text = "https://www.metroshoes.com/women-shoes/occasion/casuals.html?filter=category_name~Sneakers%7Csize~7";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+                      else if (gen.value == 'Female' && brd.value=='Metro' && wer.value=='Shoes' && sz.value == '8') {
+                          alert("Open the below link in browser for your results!\n\nhttps://www.metroshoes.com/women-shoes/occasion/casuals.html?filter=category_name~Sneakers%7Csize~8")
+                          let text = "https://www.metroshoes.com/women-shoes/occasion/casuals.html?filter=category_name~Sneakers%7Csize~8";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+                      // Female, Metro, Sports
+                      else if (gen.value == 'Female' && brd.value=='Metro' && wer.value=='Sports' && sz.value == '7') {
+                          alert("Open the below link in browser for your results!\n\nhttps://www.metroshoes.com/st-search?q=sports+shoe&f.Gender=Women&f.Size=7")
+                          let text = "https://www.metroshoes.com/st-search?q=sports+shoe&f.Gender=Women&f.Size=7";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+                      else if (gen.value == 'Female' && brd.value=='Metro' && wer.value=='Sports' && sz.value == '8') {
+                          alert("Open the below link in browser for your results!\n\nhttps://www.metroshoes.com/st-search?q=sports+shoe&f.Gender=Women&f.Size=8")
+                          let text = "https://www.metroshoes.com/st-search?q=sports+shoe&f.Gender=Women&f.Size=8";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+                      // Female, Metro, Sandals
+                      else if (gen.value == 'Female' && brd.value=='Metro' && wer.value=='Sandals' && sz.value == '7') {
+                          alert("Open the below link in browser for your results!\n\nhttps://www.metroshoes.com/women-shoes/shoe-type/sandals.html?filter=size~7")
+                          let text = "https://www.metroshoes.com/women-shoes/shoe-type/sandals.html?filter=size~7";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+                      else if (gen.value == 'Female' && brd.value=='Metro' && wer.value=='Sandals' && sz.value == '8') {
+                          alert("Open the below link in browser for your results!\n\nhttps://www.metroshoes.com/women-shoes/shoe-type/sandals.html?filter=size~8")
+                          let text = "https://www.metroshoes.com/women-shoes/shoe-type/sandals.html?filter=size~8";
+        				  document.getElementById("myP").innerHTML = text;
+                      }
+                      else{
+                        alert("Sorry\n\nProduct is out of Stock!!")
+                        }
+                      }
+                    
+                  </script>
+                  </div>
+              </div>
+              <br>
+               <div class="row">
+               	<div class="col-md-2">
+               	</div>
+               	<div class="col-md-9">
+               	<h2>Link:</h2>
+               	<h3 id="myP"></h3>
+               	</div>
+                </div>
+          </div>
+      </div>
+  </div>
+</body>
+<!-- copyright section start -->
+      <div class="copyright_section">
+      <div class="container">
+         <div class="social_icon">
+            <ul>
+               <li><a href="#"><img src="/static/images/fb-icon.png"></a></li>
+               <li><a href="#"><img src="/static/images/twitter-icon.png"></a></li>
+               <li><a href="#"><img src="/static/images/instagram-icon.png"></a></li>
+               <li><a href="#"><img src="/static/images/linkedin-icon.png"></a></li>
+            </ul>
+         </div>
+         <p class="copyright_text">2022 All Rights Reserved. Design by <a href="#">Find Your Fit</a></p>
+      </div>
+      <!-- copyright section end -->
+   </body>
+</html>
